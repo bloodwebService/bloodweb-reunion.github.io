@@ -1,105 +1,171 @@
-!doctype html>
-<html lang="en">
-<head>
+@charset "utf-8";
+/* CSS Document */
 
-	<meta charset="UTF-8">
-	<title>Live Chat</title>
+/* ---------- GENERAL ---------- */
 
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Sans:400,700">
+body {
+	background: #e9e9e9;
+	color: #9a9a9a;
+	font: 100%/1.5em "Droid Sans", sans-serif;
+	margin: 0;
+}
 
-</head>
-<body>
+a { text-decoration: none; }
 
-	<div id="live-chat">
-		
-		<header class="clearfix">
-			
-			<a href="#" class="chat-close">x</a>
+fieldset {
+	border: 0;
+	margin: 0;
+	padding: 0;
+}
 
-			<h4>John Doe</h4>
+h4, h5 {
+	line-height: 1.5em;
+	margin: 0;
+}
 
-			<span class="chat-message-counter">3</span>
+hr {
+	background: #e9e9e9;
+    border: 0;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    height: 1px;
+    margin: 0;
+    min-height: 1px;
+}
 
-		</header>
+img {
+    border: 0;
+    display: block;
+    height: auto;
+    max-width: 100%;
+}
 
-		<div class="chat">
-			
-			<div class="chat-history">
-				
-				<div class="chat-message clearfix">
-					
-					<img src="http://lorempixum.com/32/32/people" alt="" width="32" height="32">
+input {
+	border: 0;
+	color: inherit;
+    font-family: inherit;
+    font-size: 100%;
+    line-height: normal;
+    margin: 0;
+}
 
-					<div class="chat-message-content clearfix">
-						
-						<span class="chat-time">13:35</span>
+p { margin: 0; }
 
-						<h5>John Doe</h5>
+.clearfix { *zoom: 1; } /* For IE 6/7 */
+.clearfix:before, .clearfix:after {
+    content: "";
+    display: table;
+}
+.clearfix:after { clear: both; }
 
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, explicabo quasi ratione odio dolorum harum.</p>
+/* ---------- LIVE-CHAT ---------- */
 
-					</div> <!-- end chat-message-content -->
+#live-chat {
+	bottom: 0;
+	font-size: 12px;
+	right: 24px;
+	position: fixed;
+	width: 300px;
+}
 
-				</div> <!-- end chat-message -->
+#live-chat header {
+	background: #293239;
+	border-radius: 5px 5px 0 0;
+	color: #fff;
+	cursor: pointer;
+	padding: 16px 24px;
+}
 
-				<hr>
+#live-chat h4:before {
+	background: #1a8a34;
+	border-radius: 50%;
+	content: "";
+	display: inline-block;
+	height: 8px;
+	margin: 0 8px 0 0;
+	width: 8px;
+}
 
-				<div class="chat-message clearfix">
-					
-					<img src="http://gravatar.com/avatar/2c0ad52fc5943b78d6abe069cc08f320?s=32" alt="" width="32" height="32">
+#live-chat h4 {
+	font-size: 12px;
+}
 
-					<div class="chat-message-content clearfix">
-						
-						<span class="chat-time">13:37</span>
+#live-chat h5 {
+	font-size: 10px;
+}
 
-						<h5>Marco Biedermann</h5>
+#live-chat form {
+	padding: 24px;
+}
 
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis, nulla accusamus magni vel debitis numquam qui tempora rem voluptatem delectus!</p>
+#live-chat input[type="text"] {
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	padding: 8px;
+	outline: none;
+	width: 234px;
+}
 
-					</div> <!-- end chat-message-content -->
+.chat-message-counter {
+	background: #e62727;
+	border: 1px solid #fff;
+	border-radius: 50%;
+	display: none;
+	font-size: 12px;
+	font-weight: bold;
+	height: 28px;
+	left: 0;
+	line-height: 28px;
+	margin: -15px 0 0 -15px;
+	position: absolute;
+	text-align: center;
+	top: 0;
+	width: 28px;
+}
 
-				</div> <!-- end chat-message -->
+.chat-close {
+	background: #1b2126;
+	border-radius: 50%;
+	color: #fff;
+	display: block;
+	float: right;
+	font-size: 10px;
+	height: 16px;
+	line-height: 16px;
+	margin: 2px 0 0 0;
+	text-align: center;
+	width: 16px;
+}
 
-				<hr>
+.chat {
+	background: #fff;
+}
 
-				<div class="chat-message clearfix">
-					
-					<img src="http://lorempixum.com/32/32/people" alt="" width="32" height="32">
+.chat-history {
+	height: 252px;
+	padding: 8px 24px;
+	overflow-y: scroll;
+}
 
-					<div class="chat-message-content clearfix">
-						
-						<span class="chat-time">13:38</span>
+.chat-message {
+	margin: 16px 0;
+}
 
-						<h5>John Doe</h5>
+.chat-message img {
+	border-radius: 50%;
+	float: left;
+}
 
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
+.chat-message-content {
+	margin-left: 56px;
+}
 
-					</div> <!-- end chat-message-content -->
+.chat-time {
+	float: right;
+	font-size: 10px;
+}
 
-				</div> <!-- end chat-message -->
-
-				<hr>
-
-			</div> <!-- end chat-history -->
-
-			<p class="chat-feedback">Your partner is typing…</p>
-
-			<form action="#" method="post">
-
-				<fieldset>
-					
-					<input type="text" placeholder="Type your message…" autofocus>
-					<input type="hidden">
-
-				</fieldset>
-
-			</form>
-
-		</div> <!-- end chat -->
-
-	</div> <!-- end live-chat -->
-
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
-	
-</body>
-</html>
+.chat-feedback {
+	font-style: italic;	
+	margin: 0 0 0 80px;
+}
