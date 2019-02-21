@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Checkerz - Home</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body>
+
+				<!-- Header -->
+				<hr>
+					<header id="header">
+						<div class="logo">
+							<span class="icon fa-diamond"></span>
+						</div>
+						<div class="content">
+							<div class="inner">
+								<h1>Checkerz</h1>
+								<p><!--[-->Raccolta di checker totalmente gratis!<!--]--><br />
+								<!--[-->inizia a controllare le tue liste ORA!<!--]--></p>
+							</div>
+						</div>
+						<nav>
+							<ul>
+								<li><a href="../c9">C9.io</a></li>
+								<li><a href="../c9project">C9.io Project Finder</a></li>
+								<li><a href="../Register">Register.it</a></li>
+								<li><a href="../seflow">Seflow.it</a></li>
+								<li><a href="../vultr">Vultr.com</a></li>
+								<li><a href="../spotify">Spotify.com</a></li>
+								<li><a href="../netflix">Netflix.com</a></li>
+								<li><a href="../girada">Girada.it</a></li>
+								<li><a href="../seflow">Seflow.it</a></li>
+								<li><a href="../CCChecker">CreditCards</a></li>
+							</ul>
+						</nav>
+					</header>
+				<!-- Footer -->
+					<footer id="footer">
+						<p class="copyright">&copy; Template modificato da @Grizzly22.</p>
+					</footer>
+					<hr>
+				
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+	</body>
+</html>
